@@ -5,11 +5,13 @@ export const Header = () => {
     return (
         <header className={styles.header}>
             <div className={styles.container}>
-                <img
-                    className={styles.logo}
-                    src={logo}
-                    alt="FIFA logo"
-                />
+                <NavLink to="/" className={styles.logoLink}>
+                    <img
+                        className={styles.logo}
+                        src={logo}
+                        alt="FIFA logo"
+                    />
+                </NavLink>
                 <nav className={styles.nav}>
                     <NavLink
                         to='/leagues'

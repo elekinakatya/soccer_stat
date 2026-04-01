@@ -2,8 +2,8 @@
 .searchWrapper {
     position: relative;
     width: 100%;
-    max-width: 400px;
-    background-color: #ffffff;
+    max-width: 1300px;
+    background-color: #FAFAFB;
     border-radius: 8px;
     transition: all 0.2s ease;
     overflow: visible;
@@ -26,6 +26,7 @@
     pointer-events: none;
     z-index: 2;
     opacity: 0.5;
+
 }
 
 .input {
@@ -33,11 +34,12 @@
     padding: 12px 48px 12px 40px;
     border: none;
     border-radius: 8px;
-    font-size: 14px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    color: #000000;
-    background-color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #192655;
+    background-color: #FAFAFB;
+
     outline: none;
     transition: all 0.2s ease;
     box-sizing: border-box;
@@ -45,8 +47,14 @@
 }
 
 .input::placeholder {
-    color: #9ca3af;
-    font-weight: 400;
+    color: #74798c;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+.input:focus::placeholder {
+    opacity: 0;
+    transition: opacity 0.2s ease;
 }
 
 .cancelIcon {
