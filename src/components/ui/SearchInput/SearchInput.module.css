@@ -1,0 +1,91 @@
+
+.searchWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    overflow: visible;
+}
+
+.searchWrapper:focus-within {
+    box-shadow: 0 0 0 1px #116ACC;
+}
+.searchWrapper.hasValue {
+    box-shadow: 0 0 0 1px #116ACC;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.5;
+}
+
+.input {
+    width: 100%;
+    padding: 12px 48px 12px 40px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: #000000;
+    background-color: #ffffff;
+    outline: none;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    caret-color: #116ACC;
+}
+
+.input::placeholder {
+    color: #9ca3af;
+    font-weight: 400;
+}
+
+.cancelIcon {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: none;
+    background-color: #F3F4F6;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+    z-index: 2;
+    flex-shrink: 0;
+}
+
+.cancelIcon img {
+    width: 14px;
+    height: 14px;
+    display: block;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+}
+
+.cancelIcon:hover {
+    background-color: #e5e7eb;
+}
+
+.cancelIcon:hover img {
+    opacity: 1;
+}
+
+.cancelIcon:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
