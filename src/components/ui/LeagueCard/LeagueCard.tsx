@@ -1,15 +1,22 @@
 import styles from './LeagueCard.module.css'
-import vite from '../../../assets/react.svg'
-export const LeagueCard = ()=> {
+
+interface LeagueCardProps {
+    name: string;
+    areaName: string;
+    emblem?: string;
+    onClick?: () => void;
+}
+export const LeagueCard = ({name, areaName, emblem,onClick}: LeagueCardProps)=> {
     return (
-        <div className={styles.cards}>
+        <div className={styles.cards} onClick={onClick}>
             <img
                 className={styles.emblem}
-                src={vite}
+                src={emblem}
+                alt={`${name}'s emblem`}
             />
             <div className={styles.info}>
-                <p className={styles.name}>Africa Cup</p>
-                <p className={styles.areaName}>Africa</p>
+                <p className={styles.name}>{name}</p>
+                <p className={styles.areaName}>{areaName}</p>
             </div>
 
         </div>

@@ -4,3 +4,25 @@
     margin: -5px 10px 0 10px;
 
 }
+.loading {
+    text-align: center;
+    padding: 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: #626B8B;
+}
+.error {
+    text-align: center;
+    padding: 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: #ef4444;
+}
+.card {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);  /* 4 колонки одинаковой ширины */
+    gap: 20px;  /* расстояние между карточками */
+    max-width: 1300px;  /* максимальная ширина, как у поиска */
+    margin: 40px auto;  /* центрирование */
+    padding: 0 10px;  /* отступы по бокам */
+}
