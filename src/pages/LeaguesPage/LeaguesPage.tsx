@@ -3,15 +3,12 @@ import {LeagueCard} from "../../components/ui/LeagueCard/LeagueCard.tsx";
 import type { Competition } from "../../api/types";
 import {PageWithSearch} from "../../components/ui/PageWithSearch/PageWithSearch.tsx";
 
-
-
 export const LeaguesPage = () => {
     const { isLoading, data, error } = useGetCompetitionsQuery();
     const leagues: Competition[] = data?.competitions || [];
 
-
-
     return (
+        <>
         <PageWithSearch
             loading={isLoading}
             error={!!error}
@@ -27,5 +24,8 @@ export const LeaguesPage = () => {
                 />
 
             }/>
+        </>
+
+
     )
 }

@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+}
+.right {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+
+}
+.left {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+}

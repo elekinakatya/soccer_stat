@@ -5,7 +5,7 @@ export const Header = () => {
     return (
         <header className={styles.header}>
             <div className={styles.container}>
-                <NavLink to="/" className={styles.logoLink}>
+                <NavLink to="/calendar" className={styles.logoLink}>
                     <img
                         className={styles.logo}
                         src={logo}

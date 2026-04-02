@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+.date {
+    display: flex;
+    padding: 20px;
+    margin-left: 140px;
+
+}
+.table {
+    display: flex;
+    align-self: center;
+}
