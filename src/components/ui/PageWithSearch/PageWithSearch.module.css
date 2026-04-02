@@ -18,6 +18,13 @@
     font-size: 18px;
     color: #ef4444;
 }
+.empty {
+    text-align: center;
+    padding: 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: #626B8B;
+}
 .card {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -25,14 +32,4 @@
     max-width: 1300px;
     margin: 40px auto;
     padding: 0 10px;
-}
-.empty {
-    text-align: center;
-    padding: 60px 20px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
-    color: #626B8B;
-    background-color: #f8fafc;
-    border-radius: 12px;
-    margin-top: 40px;
 }
