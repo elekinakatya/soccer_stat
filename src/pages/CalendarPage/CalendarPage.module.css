@@ -1,14 +1,76 @@
 .container {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 1218px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
+
 .date {
     display: flex;
-    padding: 20px;
-    margin-left: 140px;
-
+    flex-direction: column;
+    margin-bottom: 24px;
 }
+
+.dateInputs {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.dateError {
+    margin-top: 12px;
+    padding: 12px 16px;
+    color: #dc2626;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+}
+
 .table {
     display: flex;
-    align-self: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
+
+.tableWrapper {
+    width: 100%;
+    overflow-x: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.paginationWrapper {
+    margin-top: 32px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+}
+.empty {
+    text-align: center;
+    padding: 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #626B8B;
+    width: 100%;
+}
+
+
+.loading, .error {
+    text-align: center;
+    padding: 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    width: 100%;
+}
+
+.error {
+    color: #ef4444;
+}
+
+.loading {
+    color: #626B8B;
+}
+

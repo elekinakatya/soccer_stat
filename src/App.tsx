@@ -15,7 +15,7 @@ function App() {
               <Route index element={<Navigate to='/leagues' replace/> }/>
               <Route path="leagues" element={<LeaguesPage />} />
               <Route path="teams" element={<TeamsPage />} />
-              <Route path="calendar" element={<CalendarPage/>} />
+              <Route path="calendar/:type/:id" element={<CalendarPage/>} />
           </Route>
       </Routes>
   )

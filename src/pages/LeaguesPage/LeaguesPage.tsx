@@ -2,10 +2,16 @@ import {useGetCompetitionsQuery} from "../../api/footballApi.ts";
 import {LeagueCard} from "../../components/ui/LeagueCard/LeagueCard.tsx";
 import type { Competition } from "../../api/types";
 import {PageWithSearch} from "../../components/ui/PageWithSearch/PageWithSearch.tsx";
+import {useNavigate} from "react-router-dom";
 
 export const LeaguesPage = () => {
+    const navigate = useNavigate();
     const { isLoading, data, error } = useGetCompetitionsQuery();
     const leagues: Competition[] = data?.competitions || [];
+
+    const handleLeagueClick = (leaguesId: number) => {
+        navigate(`/calendar/competition/${leaguesId}`);
+    }
 
     return (
         <>
@@ -21,6 +27,7 @@ export const LeaguesPage = () => {
                     name={league.name}
                     emblem={league.emblem}
                     areaName={league.area.name}
+                    onClick={() => handleLeagueClick(league.id)}
                 />
 
             }/>
