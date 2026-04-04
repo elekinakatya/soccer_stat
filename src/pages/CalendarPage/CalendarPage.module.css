@@ -6,6 +6,30 @@
     margin: 0 auto;
     padding: 0 20px;
 }
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 70px;
+    padding: 0 25px;
+    flex-wrap: wrap;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000000;
+}
+
+.breadcrumbLink {
+    color: #000000;
+    text-decoration: none;
+
+}
+
+.breadcrumbLink:hover {
+    color: #090E53;
+    text-decoration: none;
+}
+
 
 .date {
     display: flex;
@@ -33,6 +57,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    margin-top: 25px;
 }
 
 .tableWrapper {
@@ -72,5 +97,10 @@
 
 .loading {
     color: #626B8B;
+}
+@media (max-width: 600px) {
+    .container {
+        padding: 0 12px;
+    }
 }
 

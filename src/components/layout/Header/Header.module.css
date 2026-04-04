@@ -58,3 +58,79 @@
     height: 3px;
     background-color: #116ACC;
 }
+
+@media (max-width: 900px) {
+    .container {
+        height: 80px;
+        gap: 1.5rem;
+        padding: 0 1.5rem;
+    }
+
+    .logo {
+        height: 55px;
+    }
+
+    .nav {
+        gap: 2rem;
+    }
+
+    .navLink {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    .navLink.active::after {
+        bottom: -6px;
+        height: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        height: 65px;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .logo {
+        height: 40px;
+    }
+
+    .nav {
+        gap: 1.25rem;
+    }
+
+    .navLink {
+        font-size: 16px;
+        margin-bottom: 4px;
+    }
+
+    .navLink.active::after {
+        bottom: -5px;
+        height: 2px;
+    }
+}
+
+@media (max-width: 844px) and (orientation: landscape) {
+    .container {
+        height: 55px;
+        gap: 1.5rem;
+    }
+
+    .logo {
+        height: 35px;
+    }
+
+    .nav {
+        gap: 1.5rem;
+    }
+
+    .navLink {
+        font-size: 18px;
+        margin-bottom: 3px;
+    }
+
+    .navLink.active::after {
+        bottom: -4px;
+    }
+}

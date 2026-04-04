@@ -4,14 +4,16 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
+    width: 100%;
+    max-width: 280px;
     padding: 1rem;
     background-color: #fff;
-    width: 280px;
+    margin: 0 auto;
     height: 298px;
 
     border-radius: 7px;
 }
+
 .emblem {
     object-fit: contain;
     height: 190px;
@@ -38,4 +40,23 @@
     align-self: center;
     margin-top: 1px;
 
+}
+
+@media (max-width: 480px) {
+    .cards {
+        height: 260px;
+        padding: 0.75rem;
+    }
+
+    .emblem {
+        height: 120px;
+    }
+
+    .name {
+        font-size: 16px;
+    }
+
+    .areaName {
+        font-size: 12px;
+    }
 }

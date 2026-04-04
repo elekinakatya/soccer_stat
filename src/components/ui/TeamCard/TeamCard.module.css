@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
+    margin: 0 auto;
     padding: 1rem;
     background-color: #fff;
     width: 280px;
@@ -31,5 +31,21 @@
 .name{
     font-size: 16px;
     align-self: center;
+
+}
+
+@media (max-width: 480px) {
+    .cards {
+        height: 260px;
+        padding: 0.75rem;
+    }
+
+    .emblem {
+        height: 120px;
+    }
+
+    .name {
+        font-size: 16px;
+    }
 
 }

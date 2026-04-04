@@ -1,8 +1,12 @@
 import styles from './CalendarPage.module.css'
 import {DateRangeInput} from "../../components/ui/DateRangeInput/DateRangeInput.tsx";
 import {MatchTable} from "../../components/ui/MatchTable/MatchTable.tsx";
-import {useGetCompetitionMatchesQuery, useGetTeamMatchesQuery} from "../../api/footballApi.ts";
-import {useParams} from "react-router-dom";
+import {
+    useGetCompetitionDetailsQuery,
+    useGetCompetitionMatchesQuery, useGetTeamDetailsQuery,
+    useGetTeamMatchesQuery
+} from "../../api/footballApi.ts";
+import {Link, useParams} from "react-router-dom";
 import {useState} from "react";
 import {Pagination} from "../../components/ui/Pagination/Pagination.tsx";
 
@@ -35,7 +39,16 @@ export const CalendarPage = () => {
             dateTo: dateTo || undefined,
         }, {skip: isCompetition || !shouldFetch});
 
+    const competitionsDetails = useGetCompetitionDetailsQuery(Number(id),
+        {skip: !isCompetition});
+    const teamsDetails = useGetTeamDetailsQuery((Number(id)),{skip: isCompetition});
+
     const {data , isLoading, error} = isCompetition ? competitionQuery : teamQuery;
+
+    const title = isCompetition ? competitionsDetails.data?.name : teamsDetails.data?.name;
+    const breadcrumbs = isCompetition ?
+        { parent: 'Лиги', parentLink: '/leagues', current: title || 'Загрузка...'} :
+        { parent: 'Команды', parentLink: '/teams', current: title || 'Загрузка...' };
 
     const handleDateChange = (from: string, to: string) => {
         setDateFrom(from);
@@ -50,37 +63,49 @@ export const CalendarPage = () => {
 
 
     return (
-        <div className={styles.container}>
-            <div className={styles.date}>
-                <DateRangeInput onDateChange={handleDateChange}/>
-                {showDateError && (
-                    <div className={styles.dateError}>
-                        Для фильтрации по дате необходимо заполнить оба поля: "Матчи с" и "по"
-                    </div>
-                )}
+        <>
+            <div className={styles.breadcrumbs}>
+                <Link to={breadcrumbs.parentLink} className={styles.breadcrumbLink}>
+                    {breadcrumbs.parent}
+                </Link>
+                <span className={styles.separator}> &gt; </span>
+                <span className={styles.breadcrumbLink}>
+                    {breadcrumbs.current}
+                </span>
+
             </div>
-            <div className={styles.table}>
-                {(dateFrom !== '' && dateTo === '') || (dateFrom === '' && dateTo !== '') ? (
-                    <div className={styles.empty}>
-                        Пожалуйста, выберите обе даты (начало и конец периода)
-                    </div>
-                ) : (
-                    <>
-                    <MatchTable
-                        matches={currentMatches}
-                        loading={isLoading}
-                        error={!!error}
-                    />
-                        {totalPages > 1 && (
-                            <Pagination
-                                currentPage={currentPage}
-                                totalPages={totalPages}
-                                onPageChange={setCurrentPage}
-                            />
-                        )}
-                    </>
-                )}
+            <div className={styles.container}>
+                <div className={styles.date}>
+                    <DateRangeInput onDateChange={handleDateChange}/>
+                    {showDateError && (
+                        <div className={styles.dateError}>
+                            Для фильтрации по дате необходимо заполнить оба поля: "Матчи с" и "по"
+                        </div>
+                    )}
+                </div>
+                <div className={styles.table}>
+                    {(dateFrom !== '' && dateTo === '') || (dateFrom === '' && dateTo !== '') ? (
+                        <div className={styles.empty}>
+                            Пожалуйста, выберите обе даты (начало и конец периода)
+                        </div>
+                    ) : (
+                        <>
+                        <MatchTable
+                            matches={currentMatches}
+                            loading={isLoading}
+                            error={!!error}
+                        />
+                            {totalPages > 1 && (
+                                <Pagination
+                                    currentPage={currentPage}
+                                    totalPages={totalPages}
+                                    onPageChange={setCurrentPage}
+                                />
+                            )}
+                        </>
+                    )}
+                </div>
             </div>
-        </div>
+        </>
     )
 }
