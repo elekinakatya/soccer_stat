@@ -1,73 +1,56 @@
-# React + TypeScript + Vite
+# SoccerStat
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Приложение для просмотра спортивной статистики футбольных лиг и команд.
 
-Currently, two official plugins are available:
+## Функционал
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Просмотр списка лиг и соревнований  
+- Просмотр списка команд  
+- Просмотр календаря матчей лиги с фильтром по датам  
+- Просмотр календаря матчей команды с фильтром по датам  
+- Поиск по лигам и командам  
+- Пагинация списков  
 
-## React Compiler
+## Технологии
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19  
+- TypeScript  
+- Redux Toolkit / RTK Query  
+- React Router v7  
+- Vite  
+- CSS Modules  
 
-## Expanding the ESLint configuration
+## Установка и запуск
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Склонировать репозиторий:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/elekinakatya/soccer_stat.git
+cd soccer_stat
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. Установить зависимости:
+```bash
+npm install
 ```
+3. Создать файл .env в корне проекта и добавить API-ключ:
+```bash
+VITE_FOOTBALL_API_KEY=ваш_токен_с_football-data.org
+```
+4. Запустить проект в режиме разработки:
+```bash
+npm run dev
+```
+5. Открыть в браузере:
+```bash
+http://localhost:5173
+```
+## API
+
+Приложение использует публичное API [football-data.org](football-data.org).
+Для работы необходим токен, который выдается после регистрации.
+
+Ограничения бесплатного тарифа:
+
+- до 10 запросов в минуту
+- доступны только лиги уровней TIER_ONE и TIER_TWO
